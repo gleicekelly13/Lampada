@@ -1,11 +1,34 @@
-const lamp = document.getElementById("lamp");
-const btnLigar = document.getElementById("ligado");
-const btnDesligar = document.getElementById("desligado");
+const lamp = document.querySelector("#lamp");
+const btnLigar = document.querySelector("#ligado");
+const btnDesligar = document.querySelector("#desligado");
 
-btnLigar.addEventListener("click", function lampadaAcesa () {
-    lamp.src = "./assets/ligada.jpg";
-});
+function verificaLampQuebrada () {
+    return lamp.src.indexOf( 'quebrada' ) > -1; //procura se dentro do source da string tem a palavra 'quebrada'.
+}
 
-btnDesligar.addEventListener("click", function lampDesligada () {
-    lamp.src = "./assets/desligada.jpg";
-})
+function lampadaAcesa () {
+    if(!verificaLampQuebrada () ) {
+        lamp.src = "./assets/ligada.jpg";
+    }
+}
+
+function lampDesligada () {
+    if (!verificaLampQuebrada () ) {
+        lamp.src = "./assets/desligada.jpg";
+    }
+}
+
+function lampQuebrada () {
+    lamp.src = "./assets/quebrada.jpg";
+}
+
+btnLigar.addEventListener("click", lampadaAcesa);
+btnDesligar.addEventListener("click", lampDesligada);
+lamp.addEventListener("dblclick", lampQuebrada)
+lamp.addEventListener("mouseover", lampadaAcesa);
+lamp.addEventListener("mouseleave", lampDesligada);
+
+
+/*
+*indexOf => Faz uma varredura na string procurando outro trecho na string
+*/
