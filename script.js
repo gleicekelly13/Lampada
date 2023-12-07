@@ -16,7 +16,7 @@ function lampadaAcesa () {
 function lampDesligada () {
     if (!verificaLampQuebrada () ) {
         lamp.src = "./assets/desligada.jpg";
-        btnLigaDesliga == "Ligar";
+        btnLigaDesliga.textContent = "Ligar";
     }
 }
 
@@ -27,10 +27,10 @@ function lampQuebrada () {
 function ligarDesligar () {
     if(btnLigaDesliga.textContent == "Ligar") {
         lampadaAcesa ();
-        btnLigaDesliga.textContent == "Desligar";
+        btnLigaDesliga.textContent = "Desligar";
     } else {
         lampDesligada ();
-        btnLigaDesliga.textContent == "Ligar";
+        btnLigaDesliga.textContent = "Ligar";
     }
 }
 
